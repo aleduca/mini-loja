@@ -1,0 +1,18 @@
+{
+  "name": "xande/stripe",
+  "autoload": {
+    "psr-4": {
+      "app\\": "app/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Alexandre Cardoso",
+      "email": "xandecar@hotmail.com"
+    }
+  ],
+  "require": {
+    "stripe/stripe-php": "^10.3",
+    "league/plates": "^3.5"
+  }
+}

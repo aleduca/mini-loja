@@ -4,6 +4,7 @@ namespace app\library;
 
 use Exception;
 use League\Plates\Engine;
+use app\library\CartInfo;
 
 class View
 {
@@ -25,9 +26,7 @@ class View
       throw new Exception("View {$view} does not exist");
     }
 
-    self::addInstances('cart', new Cart);
-    // $this->addInstances('auth', new Auth);
-    // $this->addInstances('cart', new Cart);
+    self::addInstances('cart', new CartInfo);
 
     $templates = new Engine($filePath);
     $templates->addData(['instances' => self::$instances]);

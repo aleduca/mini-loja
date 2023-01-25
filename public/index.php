@@ -4,6 +4,8 @@ use app\library\Router;
 
 require '../vendor/autoload.php';
 
+session_start();
+
 try {
   $route = new Router;
   $route->add('/', 'GET', 'HomeController:index');
@@ -26,17 +28,6 @@ try {
 // ];
 
 
-// if (isset($_GET['id'])) {
-//   $id = strip_tags($_GET['id']);
-//   $productInfo = $products[$id];
-//   $product = new Product;
-//   $product->setId($productInfo['id']);
-//   $product->setName($productInfo['name']);
-//   $product->setPrice($productInfo['price']);
-//   $product->setQuantity($productInfo['quantity']);
 
-//   $cart = new Cart;
-//   $cart->add($product);
-// }
 
 // var_dump($_SESSION['cart'] ?? []);

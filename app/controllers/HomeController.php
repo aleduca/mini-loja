@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\library\Cart;
 use app\library\View;
 use app\database\models\User;
 use app\database\models\Product;

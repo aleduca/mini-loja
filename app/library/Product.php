@@ -8,6 +8,7 @@ class Product
   private string $name;
   private int $price;
   private string $slug;
+  private string $image;
   private int $quantity;
 
   public function setId(int $id)
@@ -28,6 +29,11 @@ class Product
   public function setSlug(string $slug)
   {
     $this->slug = $slug;
+  }
+
+  public function setImage(string $image)
+  {
+    $this->image = $image;
   }
 
   public function setQuantity(int $quantity)
@@ -53,6 +59,11 @@ class Product
   public function getSlug()
   {
     return $this->slug;
+  }
+
+  public function getImage()
+  {
+    return $this->image;
   }
 
   public function getQuantity()

@@ -4,12 +4,17 @@ namespace app\library;
 
 class Cart
 {
-  public function add(Product $product)
-  {
 
+  private function init()
+  {
     if (!isset($_SESSION['cart'])) {
       $_SESSION['cart'] = [];
     }
+  }
+
+  public function add(Product $product)
+  {
+    $this->init();
 
     $inCart = false;
     $this->setTotal($product);

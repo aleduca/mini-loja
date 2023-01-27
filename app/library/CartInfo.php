@@ -13,7 +13,13 @@ class CartInfo
 
   public static function getTotal()
   {
-    return $_SESSION['cart']['total'] ?? 0;
+    $total = 0;
+    if (isset($_SESSION['cart'])) {
+      foreach ($_SESSION['cart']['products'] as $product) {
+        $total += $product->getPrice() * $product->getQuantity();
+      }
+    }
+    return $total;
   }
 
   public static function getQuantity(Product $product)

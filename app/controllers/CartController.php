@@ -39,12 +39,22 @@ class CartController
     }
   }
 
+  public function update()
+  {
+    $slug = strip_tags($_POST['slug']);
+    $quantity = strip_tags($_POST['quantity']);
+    $cart = new Cart;
+    $cart->update($slug, $quantity);
+
+    return Redirect::to('/cart');
+  }
+
   public function destroy()
   {
-    if (isset($_GET['id'])) {
-      $id = strip_tags($_GET['id']);
+    if (isset($_GET['slug'])) {
+      $slug = strip_tags($_GET['slug']);
       $cart = new Cart;
-      $cart->remove($id);
+      $cart->remove($slug);
       return Redirect::back();
     }
   }

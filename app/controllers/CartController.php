@@ -2,10 +2,11 @@
 
 namespace app\controllers;
 
-use app\database\models\Product as ModelsProduct;
 use app\library\Cart;
 use app\library\View;
 use app\library\Product;
+use app\library\Redirect;
+use app\database\models\Product as ModelsProduct;
 
 class CartController
 {
@@ -31,7 +32,9 @@ class CartController
       $cart = new Cart;
       $cart->add($product);
 
-      header("Location: /");
+      Redirect::back();
+
+      // header("Location: /cart");
     }
   }
 }

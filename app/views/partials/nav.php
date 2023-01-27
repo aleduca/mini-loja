@@ -12,7 +12,7 @@
         <i class="bi-cart-fill me-1"></i>
         Cart
         <span class="badge bg-dark text-white ms-1 rounded-pill">
-          <?php echo $instances['cart']->getTotalproductsInCart(); ?>
+          <?php echo $instances['cart']::getTotalproductsInCart(); ?>
         </span>
       </button>
     </form>

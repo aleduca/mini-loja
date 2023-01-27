@@ -4,7 +4,6 @@ namespace app\library;
 
 class Product
 {
-
   private int $id;
   private string $name;
   private int $price;

@@ -5,8 +5,8 @@ namespace app\library;
 readonly class Route
 {
   public function __construct(
-    private string $uri,
-    private string $request,
+    public string $uri,
+    public string $request,
     public string $controller,
   ) {
   }

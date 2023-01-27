@@ -4,7 +4,6 @@ namespace app\library;
 
 use app\database\models\Product;
 
-
 class CartInfo
 {
   public static function getCart()
@@ -25,11 +24,8 @@ class CartInfo
     return 0;
   }
 
-  public function getTotalProductsInCart()
+  public static function getTotalProductsInCart()
   {
-    if (isset($_SESSION['cart']['products'])) {
-      return count($_SESSION['cart']['products']);
-    }
-    return 0;
+    return count(self::getCart());
   }
 }

@@ -17,7 +17,10 @@ class Router
   public function init()
   {
     foreach ($this->routes as $route) {
-      if ($route->match($route)) return (new Controller)->call($route);
+      if ($route->match($route)) {
+        Redirect::register($route);
+        return (new Controller)->call($route);
+      }
     }
 
     return (new Controller)->call(new Route('/404', 'GET', 'NotFoundController:index'));

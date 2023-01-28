@@ -13,7 +13,7 @@ class View
   private static function addInstances($instanceKey, $instanceClass)
   {
     if (!isset(self::$instances[$instanceKey])) {
-      self::$instances[$instanceKey] = new $instanceClass;
+      self::$instances[$instanceKey] = $instanceClass;
     }
   }
 

@@ -1,13 +1,8 @@
 <?php
 
-use app\library\Router;
-
-require '../vendor/autoload.php';
-
-session_start();
+require './bootstrap.php';
 
 try {
-  $route = new Router;
   $route->add('/', 'GET', 'HomeController:index');
   $route->add('/cart', 'GET', 'CartController:index');
   $route->add('/cart/add', 'GET', 'CartController:add');
@@ -17,20 +12,11 @@ try {
   $route->add('/login', 'POST', 'LoginController:store');
   $route->add('/logout', 'GET', 'LoginController:destroy');
   $route->add('/cart/add', 'GET', 'CartController:store');
+  $route->add('/checkout', 'GET', 'CheckoutController:checkout');
+  $route->add('/success', 'GET', 'StatusCheckoutController:success');
+  $route->add('/cancel', 'GET', 'StatusCheckoutController:cancel');
+  $route->add('/webhook', 'GET', 'WebhookController:payment');
   $route->init();
 } catch (Exception $e) {
   var_dump($e->getMessage() . ' ' . $e->getFile() . ' ' . $e->getLine());
 }
-
-
-// $products = [
-//   1 => ['id' => 1, 'name' => 'geladeira', 'price' => 1000.00, 'quantity' => 1],
-//   2 => ['id' => 2, 'name' => 'mouse', 'price' => 100.00, 'quantity' => 1],
-//   3 => ['id' => 3, 'name' => 'teclado', 'price' => 10.00, 'quantity' => 1],
-//   4 => ['id' => 4, 'name' => 'monitor', 'price' => 5000.00, 'quantity' => 1],
-// ];
-
-
-
-
-// var_dump($_SESSION['cart'] ?? []);

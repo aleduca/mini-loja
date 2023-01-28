@@ -13,6 +13,7 @@
   ],
   "require": {
     "stripe/stripe-php": "^10.3",
-    "league/plates": "^3.5"
+    "league/plates": "^3.5",
+    "vlucas/phpdotenv": "^5.5"
   }
 }

@@ -49,6 +49,10 @@ class Redirect
     (!isset($_SESSION['redirect'])) ?
       self::registerFirstRedirect($route) :
       self::registerRedirect($route);
+
+    if ($route->request !== 'GET') {
+      self::refresh();
+    }
   }
 
   public static function refresh()

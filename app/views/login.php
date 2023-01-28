@@ -1,9 +1,23 @@
-<?php $this->layout('master'); ?>
+<?php $this->layout('master') ?>
+<section class="h-100" style="background-color: #eee;">
+  <div class="container h-100 py-5">
+    <form method="post" action="/login">
+      <!-- Email input -->
+      <div class="form-outline mb-4">
+        <input type="email" name="email" class="form-control" value="xandecar@hotmail.com" />
+        <label class="form-label" for="form2Example1">Email address</label>
+      </div>
 
-<h2>Login</h2>
+      <!-- Password input -->
+      <div class="form-outline mb-4">
+        <input type="password" name="password" class="form-control" value="123" />
+        <label class="form-label" for="form2Example2">Password</label>
+      </div>
 
-<form action="/login" method="post">
-  <input type="text" name="email" value="xandecar@hotmail.com">
-  <input type="password" name="password" value="123">
-  <button type="submit">Login</button>
-</form>
+      <!-- Submit button -->
+      <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+
+  </div>
+  </form>
+  </div>
+</section>

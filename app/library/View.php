@@ -27,6 +27,7 @@ class View
     }
 
     self::addInstances('cart', CartInfo::class);
+    self::addInstances('auth', Auth::class);
 
     $templates = new Engine($filePath);
     $templates->addData(['instances' => self::$instances]);

@@ -50,4 +50,11 @@ class Redirect
       self::registerFirstRedirect($route) :
       self::registerRedirect($route);
   }
+
+  public static function refresh()
+  {
+    if (isset($_SESSION['redirect'])) {
+      unset($_SESSION['redirect']);
+    }
+  }
 }

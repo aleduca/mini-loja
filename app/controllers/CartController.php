@@ -44,7 +44,10 @@ class CartController
     $slug = strip_tags($_POST['slug']);
     $quantity = strip_tags($_POST['quantity']);
     $cart = new Cart;
-    $cart->update($slug, $quantity);
+
+    ($quantity <= 0) ?
+      $cart->remove($slug) :
+      $cart->update($slug, $quantity);
 
     return Redirect::to('/cart');
   }

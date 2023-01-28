@@ -15,6 +15,7 @@ try {
   $route->add('/cart/update', 'POST', 'CartController:update');
   $route->add('/login', 'GET', 'LoginController:index');
   $route->add('/login', 'POST', 'LoginController:store');
+  $route->add('/logout', 'GET', 'LoginController:destroy');
   $route->add('/cart/add', 'GET', 'CartController:store');
   $route->init();
 } catch (Exception $e) {

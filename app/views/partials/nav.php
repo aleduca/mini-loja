@@ -8,7 +8,7 @@
       <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">Home</a></li>
       <li class="nav-item"><a class="nav-link" href="/cart">Cart</a></li>
       <li class="nav-item">
-        <?php if ($instances['auth']::auth()) : ?>
+        <?php if ($instances['auth']::isAuth()) : ?>
         <a class="nav-link">Bem vindo,
           <?php echo $instances['auth']::auth()->fullName; ?>
         </a>

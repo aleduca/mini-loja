@@ -2,44 +2,35 @@
 
 namespace app\controllers;
 
-use app\library\View;
+use app\core\View;
 use app\library\Redirect;
-use app\database\models\User;
-use app\library\Auth;
-use Exception;
+use app\services\AuthService;
 
 class LoginController
 {
-  public function index()
-  {
-    return View::render('login');
-  }
+    private AuthService $authService;
 
-  public function store()
-  {
-
-    $email = strip_tags($_POST['email']);
-    $password = strip_tags($_POST['password']);
-
-    $user = User::where('email', $email);
-
-    if (!$user) {
-      throw new Exception("Usuário ou senha inválidos");
+    public function __construct()
+    {
+        $this->authService = new AuthService;
     }
 
-    if (!password_verify($password, $user->password)) {
-      throw new Exception("Usuário ou senha inválidos");
+    public function index()
+    {
+        return View::render('login');
     }
 
-    Auth::loginAs($user);
+    public function store()
+    {
+        $this->authService->authenticate();
 
-    return Redirect::to('/');
-  }
+        return Redirect::to('/');
+    }
 
-  public function destroy()
-  {
-    Auth::logout();
+    public function destroy()
+    {
+        $this->authService->logout();
 
-    return Redirect::back();
-  }
+        return Redirect::back();
+    }
 }
